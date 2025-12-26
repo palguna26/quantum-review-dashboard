@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Github, Workflow } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RepoSwitcher } from './RepoSwitcher';
+import { ThemeToggle } from './ThemeToggle';
 
 interface HeaderProps {
   user?: { login: string; avatar_url: string };
@@ -23,7 +24,8 @@ export const Header = ({ user, repos }: HeaderProps) => {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           {user ? (
             <div className="flex items-center gap-3">
               <img 

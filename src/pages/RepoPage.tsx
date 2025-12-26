@@ -5,10 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { ExternalLink, TrendingUp, Settings as SettingsIcon } from 'lucide-react';
+import { ExternalLink, TrendingUp, Settings as SettingsIcon, ShieldCheck } from 'lucide-react';
 import { api } from '@/lib/api';
 import { IssueCard } from '@/components/IssueCard';
 import { PRCard } from '@/components/PRCard';
+import { AuditPanel } from '@/components/AuditPanel';
 import type { User, RepoSummary, Issue } from '@/types/api';
 
 const RepoPage = () => {
@@ -129,6 +130,10 @@ const RepoPage = () => {
           <TabsList>
             <TabsTrigger value="issues">Issues</TabsTrigger>
             <TabsTrigger value="prs">Pull Requests</TabsTrigger>
+            <TabsTrigger value="audit">
+              <ShieldCheck className="h-4 w-4 mr-1.5" />
+              Audit
+            </TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
 
@@ -170,6 +175,13 @@ const RepoPage = () => {
             />
           </TabsContent>
 
+          <TabsContent value="audit">
+            <AuditPanel 
+              repoFullName={repoData.repo_full_name} 
+              healthScore={repoData.health_score} 
+            />
+          </TabsContent>
+
           <TabsContent value="settings">
             <Card className="glass-card p-8">
               <div className="flex items-start gap-4 mb-6">
@@ -177,7 +189,7 @@ const RepoPage = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Repository Settings</h3>
                   <p className="text-muted-foreground mb-4">
-                    Configure QuantumReview settings for this repository.
+                    Configure RevFlo settings for this repository.
                   </p>
                 </div>
               </div>
