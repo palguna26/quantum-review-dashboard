@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Sparkles } from 'lucide-react';
+import { Github, Workflow } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RepoSwitcher } from './RepoSwitcher';
 
@@ -10,12 +10,12 @@ interface HeaderProps {
 
 export const Header = ({ user, repos }: HeaderProps) => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
-      <div className="container flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold gradient-text">QuantumReview</span>
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm">
+      <div className="container flex h-14 items-center justify-between px-6">
+        <div className="flex items-center gap-8">
+          <Link to="/" className="flex items-center gap-2.5">
+            <Workflow className="h-5 w-5 text-primary" />
+            <span className="text-lg font-semibold tracking-tight">RevFlo</span>
           </Link>
           
           {user && repos && repos.length > 0 && (

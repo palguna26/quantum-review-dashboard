@@ -1,58 +1,55 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Github, Sparkles, CheckCircle2, GitPullRequest, TrendingUp, Shield } from 'lucide-react';
+import { Github, Workflow, CheckCircle2, GitPullRequest, TrendingUp, Shield, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
-        <div className="container flex h-16 items-center justify-between px-4">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold gradient-text">QuantumReview</span>
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm">
+        <div className="container flex h-14 items-center justify-between px-6">
+          <div className="flex items-center gap-2.5">
+            <Workflow className="h-5 w-5 text-primary" />
+            <span className="text-lg font-semibold tracking-tight">RevFlo</span>
           </div>
           
-          <Button asChild variant="default" className="btn-hero">
+          <Button asChild size="sm">
             <a href="/auth/github">
               <Github className="mr-2 h-4 w-4" />
-              Sign in with GitHub
+              Sign in
             </a>
           </Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container px-4 pt-20 pb-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-block">
-            <Badge className="bg-primary/10 text-primary border-primary/20">
-              AI-Powered Code Review
-            </Badge>
-          </div>
+      <section className="container px-6 pt-24 pb-20">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-medium text-primary mb-4 tracking-wide uppercase">
+            Enterprise Code Review
+          </p>
           
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
-            Elevate Your Code Quality with{' '}
-            <span className="gradient-text">Quantum Intelligence</span>
+          <h1 className="text-4xl sm:text-5xl font-semibold mb-6 leading-tight tracking-tight">
+            Streamline your code review workflow
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Automated quality assurance for GitHub repositories. Generate intelligent checklists, 
-            validate PRs, and ensure every line of code meets your standards.
+          <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
+            Intelligent checklists, automated PR validation, and quality metrics. 
+            Built for teams that ship quality code.
           </p>
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Button asChild size="lg" className="btn-hero">
+          <div className="flex items-center justify-center gap-3">
+            <Button asChild size="lg">
               <a href="/auth/github">
-                <Github className="mr-2 h-5 w-5" />
-                Get Started Free
+                Get started
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
             
             <Button asChild size="lg" variant="outline">
               <Link to="/dashboard">
-                View Demo
+                View demo
               </Link>
             </Button>
           </div>
@@ -60,115 +57,80 @@ const Landing = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="container px-4 pb-32">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-12">Powerful Features</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10">
-                  <CheckCircle2 className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Smart Checklists</h3>
-                <p className="text-muted-foreground">
-                  AI-generated quality checklists for every issue, ensuring comprehensive coverage 
-                  of testing and validation requirements.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-secondary/10">
-                  <GitPullRequest className="h-6 w-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">PR Validation</h3>
-                <p className="text-muted-foreground">
-                  Automated validation of pull requests against issue checklists with detailed 
-                  test coverage analysis and suggestions.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-success/10">
-                  <TrendingUp className="h-6 w-6 text-success" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Health Scores</h3>
-                <p className="text-muted-foreground">
-                  Real-time code health metrics for repositories and PRs, helping you maintain 
-                  high standards across your codebase.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-warning/10">
-                  <Shield className="h-6 w-6 text-warning" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Code Health Analysis</h3>
-                <p className="text-muted-foreground">
-                  Identify security issues, performance bottlenecks, and code smells with 
-                  actionable recommendations for improvement.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-accent/10">
-                  <Sparkles className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Test Suggestions</h3>
-                <p className="text-muted-foreground">
-                  AI-powered test generation with ready-to-use code snippets that match your 
-                  testing framework and style.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10">
-                  <Github className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">GitHub Integration</h3>
-                <p className="text-muted-foreground">
-                  Seamless integration with GitHub webhooks for automatic processing of issues 
-                  and pull requests as they're created.
-                </p>
-              </CardContent>
-            </Card>
+      <section className="container px-6 pb-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <FeatureCard
+              icon={<CheckCircle2 className="h-5 w-5" />}
+              title="Smart Checklists"
+              description="AI-generated quality checklists for comprehensive coverage of testing requirements."
+            />
+            <FeatureCard
+              icon={<GitPullRequest className="h-5 w-5" />}
+              title="PR Validation"
+              description="Automated validation against issue checklists with detailed coverage analysis."
+            />
+            <FeatureCard
+              icon={<TrendingUp className="h-5 w-5" />}
+              title="Health Metrics"
+              description="Real-time code health scores to maintain standards across your codebase."
+            />
+            <FeatureCard
+              icon={<Shield className="h-5 w-5" />}
+              title="Security Analysis"
+              description="Identify security issues and code smells with actionable recommendations."
+            />
+            <FeatureCard
+              icon={<Sparkles className="h-5 w-5" />}
+              title="Test Suggestions"
+              description="AI-powered test generation with ready-to-use code snippets."
+            />
+            <FeatureCard
+              icon={<Github className="h-5 w-5" />}
+              title="GitHub Integration"
+              description="Seamless webhooks for automatic processing of issues and PRs."
+            />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="container px-4 pb-32">
-        <Card className="glass-card mx-auto max-w-3xl text-center p-12">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Code Review Process?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Join teams using QuantumReview to ship higher quality code faster.
-          </p>
-          <Button asChild size="lg" className="btn-hero">
-            <a href="/auth/github">
-              <Github className="mr-2 h-5 w-5" />
-              Sign in with GitHub
-            </a>
-          </Button>
+      <section className="container px-6 pb-24">
+        <Card className="mx-auto max-w-2xl border-border/50">
+          <CardContent className="p-8 text-center">
+            <h2 className="text-2xl font-semibold mb-3 tracking-tight">Ready to get started?</h2>
+            <p className="text-muted-foreground mb-6">
+              Join teams using RevFlo to ship higher quality code.
+            </p>
+            <Button asChild>
+              <a href="/auth/github">
+                <Github className="mr-2 h-4 w-4" />
+                Sign in with GitHub
+              </a>
+            </Button>
+          </CardContent>
         </Card>
       </section>
     </div>
   );
 };
 
-const Badge = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-  <span className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${className}`}>
-    {children}
-  </span>
+const FeatureCard = ({ 
+  icon, 
+  title, 
+  description 
+}: { 
+  icon: React.ReactNode; 
+  title: string; 
+  description: string;
+}) => (
+  <Card className="border-border/50 transition-colors hover:border-border">
+    <CardContent className="p-5">
+      <div className="mb-3 text-primary">{icon}</div>
+      <h3 className="font-medium mb-1.5">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+    </CardContent>
+  </Card>
 );
 
 export default Landing;
