@@ -10,6 +10,7 @@ import { api } from '@/lib/api';
 import type { User, RepoSummary } from '@/types/api';
 import { PRCard } from '@/components/PRCard';
 import { IssueCard } from '@/components/IssueCard';
+import { ManageReposDialog } from '@/components/ManageReposDialog';
 
 const Dashboard = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -65,15 +66,18 @@ const Dashboard = () => {
 
         {/* Repository Grid */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Your Repositories</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold">Your Repositories</h2>
+            <ManageReposDialog repos={repos} />
+          </div>
           
           {repos.length === 0 ? (
             <Card className="glass-card p-12 text-center">
               <p className="text-muted-foreground mb-4">No repositories found.</p>
               <Button asChild>
-                <a href="https://github.com/apps/quantum-review/installations/new" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/apps/revflo/installations/new" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  Install QuantumReview
+                  Install RevFlo
                 </a>
               </Button>
             </Card>
